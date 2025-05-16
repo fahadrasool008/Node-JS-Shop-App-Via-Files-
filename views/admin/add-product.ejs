@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/add-products.css">
     <title>Add Product</title>
      <style>
         *{
@@ -16,5 +17,27 @@
 </head>
 <body>
     <%- include('../includes/nav.ejs')%>
+    <div class="main">
+        <h1>Add Product</h1>
+        <form action="/add-product" method="post">
+            <div class="wrapper">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            <div class="wrapper">
+                <label for="url">Image URL</label>
+                <input type="text" name="url" id="url" required>
+            </div>
+            <div class="wrapper">
+                <label for="price">Price</label>
+                <input type="text" name="price" id="price" required>
+            </div>
+            <div class="wrapper">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="6" required></textarea>
+            </div>
+            <input type="submit" value="Save">
+        </form>
+    </div>
 </body>
 </html>

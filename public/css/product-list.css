@@ -51,3 +51,15 @@
     color: white;
     border: 1.5px solid transparent;
 }
+.btn-holder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-holder span {
+    font-size: large;
+    font-weight: bold;
+}
+.lower-card {
+    margin: 4px;
+}

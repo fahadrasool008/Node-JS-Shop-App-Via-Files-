@@ -1,0 +1,25 @@
+.main {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+.wrapper label {
+    margin-bottom: 3px;
+}
+.wrapper input,.wrapper textarea {
+    padding: 6px 8px;
+    resize: vertical;
+    font-size: medium;
+}
+.main input[type='submit'] {
+    padding: 5px 20px;
+}
+.main h1 {
+    text-align: center;
+    margin: 12px;
+}
