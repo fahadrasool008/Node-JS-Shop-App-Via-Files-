@@ -1,6 +1,9 @@
 <nav>
     <ul>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#"></a></li>
+        <li><a class="<%= path === '/shop' ? 'active' : '' %>" href="/">Shop</a></li>
+        <li><a class = "<%= path ==='/products' ? 'active' : '/products' %>" href="/products">Products</a></li>
+        <li><a class = "<%= path ==='/cart'?'active':''%>" href="/cart">Cart</a></li>
+        <li><a class = "<%= path ==='/add-product'?'active':''%>" href="/add-product">Add Products</a></li>
+        <li><a class = "<%= path ==='/admin-products'?'active':''%>" href="/admin-products">Admin Products</a></li>
     </ul>
 </nav>
