@@ -1,0 +1,24 @@
+article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+article img {
+    width: 30%;
+}
+
+.content button {
+  padding: 6px 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: #158b72;
+  border: 1.5px solid #158b72;
+  border-radius: 4px;
+  transition-duration: 300ms;
+}
+.content button:hover {
+  background-color: #158b72;
+  color: white;
+  border: 1.5px solid transparent;
+}
