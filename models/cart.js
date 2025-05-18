@@ -25,9 +25,35 @@
                 cart.products = [...cart.products,updatedProduct];
             }
             cart.totalPrice = cart.totalPrice + +price;
-            cart.totalPrice = cart.totalPrice.toFixed(2);
+            cart.totalPrice = parseFloat(cart.totalPrice.toFixed(2));
 
             fs.writeFile(p,JSON.stringify(cart), (err) => {
+                console.log(err);
+            })
+        })
+    }
+    static getCart(cb) {
+        
+        fs.readFile(p,(err, fileContent) => {
+            if(err) {
+                return cb(null);
+            }
+            let cart = JSON.parse(fileContent);
+            cb(cart);
+        })
+    }
+    static removeFromCart(id,price) {
+        let cart;
+        fs.readFile(p,(err, fileContent) => {
+            if(err) {
+                console.log(err);
+            }
+            cart = JSON.parse(fileContent);
+            const index = cart.products.findIndex(product => product.id === id);
+            const removedProduct = cart.products[index];
+            cart.totalPrice = cart.totalPrice - (removedProduct.qty * price);
+            cart.products.splice(index,1);
+            fs.writeFile(p,JSON.stringify(cart),(err) => {
                 console.log(err);
             })
         })

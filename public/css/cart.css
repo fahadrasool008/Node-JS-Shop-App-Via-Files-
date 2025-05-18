@@ -1,0 +1,62 @@
+article {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 15px 2px rgba(128, 128, 128, 0.333);
+    border-radius: 6px;
+    padding: .6rem;
+    margin-bottom: .4rem;
+    width: 80%;
+    position: relative;
+}
+.item .removeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+.item .removeBtn:hover {
+    transform: rotate(90deg);
+}
+.item img {
+    width: 12rem;
+    height: 13rem;
+    flex: 1;
+    background-size: cover;
+}
+.left-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    row-gap: 1rem;
+    margin-left: .4rem;
+}
+.right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    row-gap: 1rem;
+    margin-right: .4rem;
+}
+
+.right-content h2 {
+    font-size: xxx-large;
+    color: #158b72;
+  
+
+;
+}

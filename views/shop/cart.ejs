@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/nav.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/cart.css" />
     <title>Cart</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('../includes/nav.ejs') %>
-</body>
+    <article>
+      <% for (const product of cartProducts) { %>
+      <div class="item">
+        <a class="removeBtn" href="/remove-from-cart/<%=product.product.id%>?price=<%=product.product.price%>">&#10060;</a>
+        <img src="<%=product.product.imageUrl%>" />
+        <div class="left-content">
+          <h1><%=product.product.title%></h1>
+          <p><%=product.product.description.substring(0,750)%></p>
+        </div>
+        <div class="right-content">
+            <h3>Quantity: <%=product.qty%></h3>
+          <h2>$<%=product.product.price%></h2>
+        </div>
+      </div>
+      <% } %>
+    </article>
+  </body>
 </html>

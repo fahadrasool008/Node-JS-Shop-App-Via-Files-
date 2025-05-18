@@ -33,6 +33,27 @@ module.exports = class Product{
             })
         }
 
+        update() {
+            getProductFromFile(products => {
+                const productIndex = products.findIndex(product => product.id === this.id);
+                products[productIndex] = this;
+                fs.writeFile(p,JSON.stringify(products),(err) => {
+                    console.log(err);
+                })
+            })
+        }
+
+        static delete(id) {
+            getProductFromFile(products => {
+                const productIndex = products.findIndex(product => product.id === id);
+                let updatedProductsList = products.filter((_,index) => index !== productIndex);
+
+                fs.writeFile(p,JSON.stringify(updatedProductsList),(err) => {
+                    console.log(err);
+                })
+            })
+        }
+
         static fetchAll(cb) {
             getProductFromFile(cb)
         }

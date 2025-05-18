@@ -31,8 +31,8 @@
             <div class="btn-holder">
                 <span>$<%=product.price%></span>
                 <div class="actions">
-                  <button class="edit"><a href="#">Edit</a></button>
-                  <button class="delete"><a href="#">Delete</a></button>
+                  <button class="edit"><a href="/edit-product/<%=product.id%>?edit=true">Edit</a></button>
+                  <button class="delete"><a href="/delete-product/<%=product.id%>">Delete</a></button>
                 </div>
             </div>
             </div>

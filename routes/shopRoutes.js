@@ -9,5 +9,6 @@ router.get('/products/:productId',shopController.getProductById);
 router.get('/cart',shopController.getCart);
 
 router.post('/add-to-cart/:productId',shopController.postAddToCart);
+router.get('/remove-from-cart/:productId',shopController.getRemoveFromCart);
 
 module.exports = router;
