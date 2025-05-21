@@ -1,3 +1,4 @@
+const db = require('../utils/database')
 const path = require('path');
 const rootDir = require('../utils/getRootDir');
 const fs = require('fs');
@@ -54,13 +55,7 @@ module.exports = class Product{
             })
         }
 
-        static fetchAll(cb) {
-            getProductFromFile(cb)
-        }
-        static getProductById(id,cb) {
-            getProductFromFile((products) => {
-                const product = products.find(product => product.id === id);
-                cb(product);
-            })
+        static fetchAll() {
+         return db.query('SELECT * FROM PRODUCTS');
         }
     }
