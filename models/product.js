@@ -25,37 +25,22 @@ module.exports = class Product{
     }
         
         save() {
-            getProductFromFile(products => {
-                this.id = Math.random().toString();
-                products.push(this)
-                fs.writeFile(p,JSON.stringify(products),(err) => {
-                    console.log(err); 
-                })
-            })
+            return db.execute('INSERT INTO products (title,price,description,imageUrl) VALUES(?,?,?,?)',[this.title,this.price, this.description, this.imageUrl]);
         }
 
         update() {
-            getProductFromFile(products => {
-                const productIndex = products.findIndex(product => product.id === this.id);
-                products[productIndex] = this;
-                fs.writeFile(p,JSON.stringify(products),(err) => {
-                    console.log(err);
-                })
-            })
+            return db.execute('UPDATE products SET title = ?, price = ?, description = ?, imageUrl = ? WHERE id = ?',[this.title, this.price, this.description, this.imageUrl, this.id])
         }
 
         static delete(id) {
-            getProductFromFile(products => {
-                const productIndex = products.findIndex(product => product.id === id);
-                let updatedProductsList = products.filter((_,index) => index !== productIndex);
-
-                fs.writeFile(p,JSON.stringify(updatedProductsList),(err) => {
-                    console.log(err);
-                })
-            })
+           return db.execute('DELETE FROM products WHERE id = ?',[id]);
         }
 
         static fetchAll() {
          return db.query('SELECT * FROM PRODUCTS');
+        }
+        
+        static getProductById(id) {
+            return db.query(`SELECT * FROM PRODUCTS WHERE id=${id}`);
         }
     }

@@ -17,9 +17,8 @@ exports.getProducts = (req, res) => {
 };
 
 exports.getProductById = (req,res) => {
-  Product.getProductById(req.params.productId,(product) => {
-    res.render('shop/product-details',{product:product,path:'/products'});
-    
+  Product.getProductById(req.params.productId).then((rows,_) => {
+    res.render('shop/product-details',{product:rows[0][0],path:'/products'});
   })
 }
 exports.getCart = (req, res) => {
